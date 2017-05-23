@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+    testCompile 'junit:junit:4.12'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        ChannelPlugin(MavenPublication) {
+            from components.java
+            groupId = 'com.dongnao.channel'
+            artifactId = 'plugin'
+            version = '1.0'
+        }
+    }
+}
+
+
